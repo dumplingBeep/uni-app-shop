@@ -8,6 +8,11 @@ const router = new KoaRouter();
 	
 app.use(router.routes());
 
+const indexData = require('./datas/index.json')
+router.get('/getIndexData', (ctx) => {
+	ctx.body = indexData;
+})
+
 // 应用
 app.listen(9527,(error) => {
 	if(error){
