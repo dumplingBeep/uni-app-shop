@@ -6,7 +6,7 @@
 				<view class="iconfont icon-sousuo"></view>
 				<input class="seachInput" type="text" value="" placeholder-class="placeholder"  placeholder="搜索商品"/>
 			</view>
-			<button class="username">哎呀！！！</button>
+			<button class="username">哎呀</button>
 		</view>
 		
 		<!-- 导航滑动区域 -->
@@ -22,17 +22,27 @@
 			@click="switchNav(index)"
 			>{{kingKong.text}}</view>
 		</scroll-view>
+		
+		<Recomment v-if="currentNavIndex === -1"></Recomment>
+		<CategoryList v-else></CategoryList>
 	</view>
 </template>
 
 <script>
 	import req from '../../utils/req.js';
+	import CategoryList from ".。/../components/CategoryList";
+	import Recomment from ".。/../components/Recomment";
+	
 	export default {
 		data() {
 			return {
 				indexData: {},
 				currentNavIndex: -1
 			}
+		},
+		components:{
+			Recomment,
+			CategoryList
 		},
 		onLoad() {
 
@@ -63,6 +73,8 @@
 				margin  0 20upx
 				flex-shrink  0
 			.search
+				display flex
+				align-items center
 				background #ccc
 				height 60upx
 				flex-grow 1

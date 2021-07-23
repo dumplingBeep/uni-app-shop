@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "uni-app",
-  "usingComponents": {}
+  "usingComponents": {
+    "recomment": "/components/Recomment/index",
+    "category-list": "/components/CategoryList/index"
+  }
 }
