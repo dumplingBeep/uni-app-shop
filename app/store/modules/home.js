@@ -1,7 +1,7 @@
 import req from '../../utils/req.js'
 
 const state = {
-	indexDate: {}
+	indexData: {}
 }
 
 const actions = {
@@ -14,8 +14,8 @@ const actions = {
 }
 
 const mutations = {
-	SET_INDEX_DATA(state, data){
-		state.indexDate = data
+	SET_INDEX_DATA:(state, data)=>{
+		state.indexData = data
 	}
 }
 

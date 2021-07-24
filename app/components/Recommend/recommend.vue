@@ -13,62 +13,18 @@
 		</swiper>
 		
 		<!-- policyDescList区域 -->
-		<view class="policyDescList">
-			<view class="policyDescItem">
-				<image src="https://yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png" mode=""></image>
-				<text>网易严选品牌</text>
-			</view>
-			<view class="policyDescItem">
-				<image src="https://yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png" mode=""></image>
-				<text>网易严选品牌</text>
-			</view>
-			<view class="policyDescItem">
-				<image src="https://yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png" mode=""></image>
-				<text>网易严选品牌</text>
+		<view class="policyDescList" v-if="indexData">
+			<view class="policyDescItem" v-for="policyDesc in indexData.policyDescList" :key="policyDesc.desc">
+				<image :src="policyDesc.icon" mode=""></image>
+				<text>{{policyDesc.desc}}</text>
 			</view>
 		</view>
 		
 		<!-- nav区域 -->
 		<view class="nav">
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
-			</view>
-			<view class="navItem">
-				<image src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" mode=""></image>
-				<view>居家生活</view>
+			<view class="navItem" v-for="kingKong in indexData.kingKongModule.kingKongList" :key="kingKong.L1Id">
+				<image :src="kingKong.picUrl" mode=""></image>
+				<view>{{kingKong.text}}</view>
 			</view>
 		</view>
 		
@@ -78,12 +34,17 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex';
 	import CategoryList from '../CategoryList/categoryList.vue';
+	
 	export default{
 		name:"Recommend",
 		components:{
 			CategoryList
-		}
+		},
+		computed: {
+			...mapState('home', ['indexData']),
+		},
 	}
 </script>
 
