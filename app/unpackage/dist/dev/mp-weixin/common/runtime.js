@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/Recomment/index":1};
+/******/ 		var cssChunks = {"components/Recommend/recommend":1,"components/CategoryList/categoryList":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/CategoryList/index":"components/CategoryList/index","components/Recomment/index":"components/Recomment/index"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/CateList/index":"components/CateList/index","components/Recommend/recommend":"components/Recommend/recommend","components/CategoryList/categoryList":"components/CategoryList/categoryList"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

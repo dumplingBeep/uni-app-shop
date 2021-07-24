@@ -23,15 +23,15 @@
 			>{{kingKong.text}}</view>
 		</scroll-view>
 		
-		<Recomment v-if="currentNavIndex === -1"></Recomment>
-		<CategoryList v-else></CategoryList>
+		<Recommend v-if="currentNavIndex === -1"></Recommend>
+		<CateList v-else></CateList>
 	</view>
 </template>
 
 <script>
 	import {mapState, mapActions} from 'vuex';
-	import CategoryList from ".。/../components/CategoryList";
-	import Recomment from ".。/../components/Recomment";
+	import CateList from ".。/../components/CateList";
+	import Recommend from ".。/../components/Recommend/recommend.vue";
 	
 	export default {
 		data() {
@@ -41,8 +41,8 @@
 			}
 		},
 		components:{
-			Recomment,
-			CategoryList
+			Recommend,
+			CateList
 		},
 		onLoad() {
 
