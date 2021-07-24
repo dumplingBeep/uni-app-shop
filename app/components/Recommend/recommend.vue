@@ -21,7 +21,7 @@
 		</view>
 		
 		<!-- nav区域 -->
-		<view class="nav">
+		<view class="nav" v-if="indexData.kingKongModule">
 			<view class="navItem" v-for="kingKong in indexData.kingKongModule.kingKongList" :key="kingKong.L1Id">
 				<image :src="kingKong.picUrl" mode=""></image>
 				<view>{{kingKong.text}}</view>
@@ -29,7 +29,7 @@
 		</view>
 		
 		<!-- CategoryList导航指南区域 -->
-		<CategoryList />
+		<CategoryList v-for="category in indexData.categoryModule" :category="category" :key="category.titlePicUrl"/>
 	</view>
 </template>
 

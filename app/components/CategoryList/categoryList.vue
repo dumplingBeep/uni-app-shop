@@ -1,53 +1,11 @@
 <template>
 	<view class="categoryListContainer">
-		<image class="titleImg" src="https://yanxuan.nosdn.127.net/14318a2168c8c0b6d8e2ed60dcbed570.jpg" mode=""></image>
+		<image class="titleImg" :src="category.titlePicUrl" mode=""></image>
 		<scroll-view class="categoryScroll" scroll-x="true" >
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
+			<view class="categoryItem" v-for="item in category.itemList" :key="item.id">
+				<image class="itemImg" :src="item.primaryPicUrl" mode="" lazy-load></image>
 				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
-				</view>
-			</view>
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
-				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
-				</view>
-			</view>
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
-				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
-				</view>
-			</view>
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
-				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
-				</view>
-			</view>
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
-				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
-				</view>
-			</view>
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
-				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
-				</view>
-			</view>
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
-				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
-				</view>
-			</view>
-			<view class="categoryItem">
-				<image class="itemImg" src="https://yanxuan-item.nosdn.127.net/25564ec10d8017e6165e20fac93c32b2.png" mode=""></image>
-				<view class="itemText">
-					随时随地喝热水 3秒即热便携式迷你开水机
+					{{item.name}}
 				</view>
 			</view>
 		</scroll-view>
@@ -55,9 +13,16 @@
 </template>
 
 <script>
+	import {mapState} from 'vuex'
+	
 	export default{
 		data(){
 			return {};
+		},
+		props:{
+			category:{
+				type:Object
+			}
 		},
 		created(){
 		},
